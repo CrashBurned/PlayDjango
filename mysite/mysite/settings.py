@@ -10,8 +10,19 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from os import path
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+
+SETTINGS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+PROJECT_PATH=os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH=os.path.abspath(PROJECT_PATH)
+
+
+TEMPLATE_PATH=os.path.join(PROJECT_PATH, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -50,6 +61,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    TEMPLATE_PATH,
 )
 
 ROOT_URLCONF = 'mysite.urls'
