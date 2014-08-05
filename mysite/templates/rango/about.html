@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+    <head>
+        <title>About</title>
+    </head>
+
+    <body>
+        <h1>Rango says...</h1>
+        <strong>{{ boldmessage }}</strong><br />
+        <p>Go back to index </p> 
+        <a href="/rango/">Index</a><br />
+        <img src="{% static "rango.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
+    </body>
+
+</html>

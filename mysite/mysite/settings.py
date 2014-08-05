@@ -24,6 +24,12 @@ PROJECT_PATH=os.path.abspath(PROJECT_PATH)
 
 TEMPLATE_PATH=os.path.join(PROJECT_PATH, 'templates')
 
+STATIC_PATH = os.path.join(PROJECT_PATH,'static')
+
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media') # Absolute path to the media directory
+
+DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -48,10 +54,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'rango',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,6 +77,10 @@ TEMPLATE_DIRS = (
     TEMPLATE_PATH,
 )
 
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
 ROOT_URLCONF = 'mysite.urls'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
@@ -81,7 +92,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': DATABASE_PATH,
     }
 }
 
@@ -103,3 +114,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
